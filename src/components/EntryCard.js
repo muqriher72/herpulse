@@ -7,6 +7,7 @@ export default function EntryCard({ entry }) {
       <p><strong>💧 Urine Volume:</strong> {entry.volume} mL</p>
       <p><strong>🥤 Fluid Type:</strong> {entry.fluidtype}</p>
       <p><strong>🥛 Fluid Volume:</strong> {entry.fluidvolume} mL</p>
+      <p><strong>🩸 Menstrual Cycle Date::</strong> {entry.menstrual}</p>
 
       <p>
         <strong>🚱 Urine Leak:</strong> {entry.urineleak ? "Yes" : "No"}
