@@ -76,7 +76,19 @@ export default function EntryForm({ onAdd }) {
       <input type="number" value={volume} onChange={(e) => setVolume(e.target.value)} required />
 
       <label>Type of Fluid Consumed:</label>
-      <input type="text" value={fluidtype} onChange={(e) => setFluidType(e.target.value)} required />
+      <div style = {{ display: "flex", gap: "8px", alignItems: "center"}}>
+        <input type="text" value={fluidtype} onChange={(e) => setFluidType(e.target.value)} required />
+
+        {["Water", "Coffee", "Tea", "Milk", "Other, please specify in notes!"].map((type) => (
+          <button
+            key={type}
+            type="button"
+            onClick={() => setFluidType(type)}
+          >
+            {type}
+          </button>
+        ))}
+      </div>
 
       <label>Volume of Fluid Consumed (mL):</label>
       <input type="number" value={fluidvolume} onChange={(e) => setFluidVolume(e.target.value)} required />
@@ -84,32 +96,59 @@ export default function EntryForm({ onAdd }) {
       <label>When was the first date of your last menstrual cycle?</label>
       <input type="date" value={menstrual} onChange={(e) => setMenstrual(e.target.value)} required />
 
-      <label>
-        <input
-          type="checkbox"
-          checked={urineleak}
-          onChange={(e) => setUrineLeak(e.target.checked)}
-        />
-        Did your urine leak?
-      </label>
+      <label>Did your urine leak?</label>
+      <div style={{ display: "flex", gap: "8px", marginBottom: "10px" }}>
+        <button
+          type="button"
+          onClick={() => setUrineLeak(true)}
+          style={{ backgroundColor: urineleak ? "#4CAF50" : "#f0f0f0" }}
+        >
+          Yes
+        </button>
+        <button
+          type="button"
+          onClick={() => setUrineLeak(false)}
+          style={{ backgroundColor: urineleak === false ? "#f44336" : "#f0f0f0" }}
+        >
+          No
+        </button>
+      </div>
 
-      <label>
-        <input
-          type="checkbox"
-          checked={urineurge}
-          onChange={(e) => setUrineUrge(e.target.checked)}
-        />
-        Did you feel an urge to go?
-      </label>
+      <label>Did you feel an urge to go?</label>
+      <div style={{ display: "flex", gap: "8px", marginBottom: "10px" }}>
+        <button
+          type="button"
+          onClick={() => setUrineUrge(true)}
+          style={{ backgroundColor: urineurge ? "#4CAF50" : "#f0f0f0" }}
+        >
+          Yes
+        </button>
+        <button
+          type="button"
+          onClick={() => setUrineUrge(false)}
+          style={{ backgroundColor: urineurge === false ? "#f44336" : "#f0f0f0" }}
+        >
+          No
+        </button>
+      </div>
 
-      <label>
-        <input
-          type="checkbox"
-          checked={soiled}
-          onChange={(e) => setSoiled(e.target.checked)}
-        />
-        Did you soil your clothes with stool?
-      </label>
+      <label>Did you soil your clothes with stool?</label>
+      <div style={{ display: "flex", gap: "8px", marginBottom: "10px" }}>
+        <button
+          type="button"
+          onClick={() => setSoiled(true)}
+          style={{ backgroundColor: soiled ? "#4CAF50" : "#f0f0f0" }}
+        >
+          Yes
+        </button>
+        <button
+          type="button"
+          onClick={() => setSoiled(false)}
+          style={{ backgroundColor: soiled === false ? "#f44336" : "#f0f0f0" }}
+        >
+          No
+        </button>
+      </div>
 
       <label>Notes (optional):</label>
       <input type="text" value={notes} onChange={(e) => setNotes(e.target.value)} />
