@@ -31,10 +31,46 @@ export default function EntryForm({ onAdd }) {
   return (
     <form onSubmit={handleSubmit} className="form">
       <label>Time of void:</label>
-      <input type="time" value={time} onChange={(e) => setTime(e.target.value)} required />
+      <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
+        <input
+          type="time"
+          value={time}
+          onChange={(e) => setTime(e.target.value)}
+          required
+        />
+        <button
+          type="button"
+          onClick={() => {
+            const now = new Date();
+            const formatted = now.toTimeString().slice(0, 5); 
+            setTime(formatted);
+          }}
+        >
+          Now
+        </button>
+      </div>
+      
 
       <label>Date of void:</label>
-      <input type="date" value={date} onChange={(e) => setDate(e.target.value)} required />
+      <div style = {{ display: "flex", gap: "8px", alignItems: "center"}}>
+        <input 
+          type="date" 
+          value={date} 
+          onChange={(e) => setDate(e.target.value)} 
+          required 
+        />
+
+        <button
+          type = "button"
+          onClick = {() => {
+            const today = new Date();
+            const formattedDate = today.toISOString().split("T")[0]; 
+            setDate(formattedDate); 
+          }}
+        >
+          Today
+        </button>
+      </div>
 
       <label>Volume of Urine (mL):</label>
       <input type="number" value={volume} onChange={(e) => setVolume(e.target.value)} required />
