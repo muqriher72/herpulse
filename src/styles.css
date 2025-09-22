@@ -7,7 +7,7 @@ body {
 }
 
 .header {
-  background: #8e44ad;
+  background: #b574d2;
   color: white;
   padding: 1.5rem;
   text-align: center;
@@ -33,7 +33,7 @@ input, button {
 }
 
 button {
-  background-color: #8e44ad;
+  background-color: #b574d2;
   color: white;
   cursor: pointer;
   transition: background 0.2s ease;
